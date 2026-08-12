@@ -60,7 +60,7 @@
         <div id="particle-canvas"></div>
     </div>
 
-    <!-- ================= TOP CYBER HUD (CLEANED) ================= -->
+    <!-- ================= TOP CYBER HUD ================= -->
     <header class="quantum-hud">
         <div class="hud-brand" onclick="switchView('sec-home')">
             <span class="brand-box">SI</span>
@@ -69,7 +69,14 @@
 
         <div class="hud-center-stats">
             <div class="hud-stat-pill">
-                <span>IP: <strong class="gold-txt">skillissuesmp.qzz.io</strong></span>
+                <span class="pulse-dot"></span>
+                <span>STATUS: <strong class="gold-txt">ONLINE</strong></span>
+            </div>
+            <div class="hud-stat-pill">
+                <span>PVP: <strong class="cyan-txt">NIGHT ONLY</strong></span>
+            </div>
+            <div class="hud-stat-pill">
+                <span>IP: <strong>skillissuesmp.qzz.io</strong></span>
             </div>
             <div class="hud-stat-pill day-pill">
                 <span>SEASON 01 // <strong class="gold-txt">DAY <span id="smp-day-count">--</span></strong></span>
@@ -114,7 +121,7 @@
             </div>
         </section>
 
-        <!-- 2. ELITE RANKINGS (HALL OF HONOR REDESIGN) -->
+        <!-- 2. ELITE RANKINGS (HALL OF HONOR) -->
         <section id="sec-rankings" class="view-panel">
             <div class="panel-heading">
                 <h2>HALL OF <span class="gold-txt">HONOR</span></h2>
@@ -618,7 +625,7 @@
     <!-- JS ENGINE -->
     <script>
         // ================================================================
-        // 1. SCI-FI WEB AUDIO SOUND FX ENGINE (CRYSTAL HOLOGRAPHIC CHIME)
+        // 1. SCI-FI WEB AUDIO SOUND FX ENGINE (MINECRAFT MACE SMASH HIT)
         // ================================================================
         let sfxEnabled = true;
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -631,37 +638,54 @@
             const now = audioCtx.currentTime;
 
             if(type === 'click') {
-                const osc1 = audioCtx.createOscillator();
-                const osc2 = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
+                // --- MINECRAFT MACE HEAVY HIT / SMASH SOUND ---
+                const osc = audioCtx.createOscillator();
+                const oscGain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(140, now);
+                osc.frequency.exponentialRampToValueAtTime(30, now + 0.15);
+                
+                oscGain.gain.setValueAtTime(0.5, now);
+                oscGain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
+                
+                osc.connect(oscGain);
+                oscGain.connect(audioCtx.destination);
+                osc.start(now);
+                osc.stop(now + 0.18);
 
-                osc1.type = 'sine';
-                osc2.type = 'triangle';
+                const bufferSize = audioCtx.sampleRate * 0.1;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
 
-                osc1.frequency.setValueAtTime(523.25, now);
-                osc1.frequency.exponentialRampToValueAtTime(783.99, now + 0.12);
-                osc2.frequency.setValueAtTime(659.25, now);
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
 
-                gain.gain.setValueAtTime(0.12, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(800, now);
+                filter.frequency.linearRampToValueAtTime(100, now + 0.1);
 
-                osc1.connect(gain);
-                osc2.connect(gain);
-                gain.connect(audioCtx.destination);
+                const noiseGain = audioCtx.createGain();
+                noiseGain.gain.setValueAtTime(0.3, now);
+                noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
 
-                osc1.start(now);
-                osc2.start(now);
-                osc1.stop(now + 0.15);
-                osc2.stop(now + 0.15);
+                noise.connect(filter);
+                filter.connect(noiseGain);
+                noiseGain.connect(audioCtx.destination);
+                noise.start(now);
+                noise.stop(now + 0.12);
 
             } else if(type === 'switch') {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(330, now);
-                osc.frequency.exponentialRampToValueAtTime(660, now + 0.08);
-                gain.gain.setValueAtTime(0.08, now);
-                gain.gain.linearRampToValueAtTime(0.001, now + 0.08);
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(180, now);
+                osc.frequency.exponentialRampToValueAtTime(60, now + 0.08);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.08);
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
                 osc.start(now);
