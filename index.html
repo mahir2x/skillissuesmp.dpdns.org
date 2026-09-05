@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- 🌟 CACHE BUSTER: Browser will be forced to load the new CSS 🌟 -->
+    <link rel="stylesheet" href="./style.css?v=7.0">
 </head>
 <body>
 
@@ -142,14 +143,13 @@
             </div>
         </section>
 
-        <!-- 2. ELITE RANKINGS (Updated to vertical list & Araf's reset) -->
+        <!-- 2. ELITE RANKINGS -->
         <section id="sec-rankings" class="view-panel">
             <div class="panel-heading">
                 <h2>HALL OF <span class="red-txt">HONOR</span></h2>
             </div>
             <div class="ranking-hall">
                 
-                <!-- RANK 1 -->
                 <div class="honor-card champion-card" onclick="openPlayerDossier('Its_Mahir', '1ST RANK / MASTER', '416', '6', '106h 07m', '69.33', 'The undisputed Sovereign of Skill Issue SMP. An apex predator in PvP with near-perfect lethality.')">
                     <div class="card-crown">👑</div>
                     <div class="rank-badge-top gold-bg-badge">#1 MASTER</div>
@@ -166,7 +166,6 @@
                     </div>
                 </div>
 
-                <!-- RANK 2 -->
                 <div class="honor-card warlord-card" onclick="openPlayerDossier('Its_Sinzo9', '2ND RANK / PRO', '173', '115', '87h 44m', '1.50', 'High-tier Pro combatant and essential resource collector.')">
                     <div class="card-crown">⚡</div>
                     <div class="rank-badge-top silver-bg-badge">#2 PRO</div>
@@ -183,7 +182,6 @@
                     </div>
                 </div>
 
-                <!-- RANK 3 -->
                 <div class="honor-card vanguard-card" onclick="openPlayerDossier('Its_Rudronil', '3RD RANK / AVERAGE', '50', '156', '78h 36m', '0.32', 'Dedicated survival builder and agricultural engineer.')">
                     <div class="card-crown">🛡️</div>
                     <div class="rank-badge-top bronze-bg-badge">#3 AVERAGE</div>
@@ -200,7 +198,7 @@
                     </div>
                 </div>
 
-                <!-- RANK 4 (ARAF - DATA RESET) -->
+                <!-- RANK 4 (ARAF) -->
                 <div class="honor-card challenger-card" onclick="openPlayerDossier('Araf_XD', '4TH RANK / NOOB', 'RESET', 'RESET', 'RESET', '0.00', 'The ultimate grit challenger. Possesses an unbreakable spirit. *DATA HAS BEEN WIPED*')">
                     <div class="card-crown">🎯</div>
                     <div class="rank-badge-top standard-bg-badge">#4 NOOB</div>
@@ -209,7 +207,6 @@
                             <h3 class="p-title-name">Araf_XD <span class="title-tag standard-tag">4TH RANK</span></h3>
                         </div>
                     </div>
-                    <!-- Player Data Reset Notice -->
                     <div style="width: 100%; border-top: 1px dashed rgba(255,42,42,0.4); margin-top: 25px; padding-top: 25px;">
                         <strong class="red-txt neon-flicker" style="font-family: 'Orbitron'; font-size: 1.4rem; letter-spacing: 3px;">[ PLAYER DATA RESET ]</strong>
                     </div>
@@ -257,23 +254,17 @@
             <div class="serial-grid" id="farms-grid">
                 
                 <div class="card-unit" data-author="Mahir Sinzo">
-                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png', '01. IRON FARM', 'Its_Mahir', '1 Hour', 'Its_Sinzo9', 'An industrial-grade iron golem harvesting facility utilizing artificial village panic mechanics.', event)">
-                        <img src="https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png">
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png', '01. IRON FARM', 'Its_Mahir', '1 Hour', 'Its_Sinzo9', 'An industrial-grade iron golem harvesting facility utilizing artificial village panic mechanics.', event)"><img src="https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png"></div>
                     <div class="card-info"><h3>01. IRON FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 1h</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
                 </div>
 
                 <div class="card-unit" data-author="Mahir Sinzo">
-                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png', '02. ENDERMAN FARM', 'Its_Mahir', '3 Hours', 'Its_Sinzo9', 'Constructed in the deep void of the End, providing instantaneous XP levels and ender pearls.', event)">
-                        <img src="https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png">
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png', '02. ENDERMAN FARM', 'Its_Mahir', '3 Hours', 'Its_Sinzo9', 'Constructed in the deep void of the End, providing instantaneous XP levels and ender pearls.', event)"><img src="https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png"></div>
                     <div class="card-info"><h3>02. ENDERMAN FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 3h</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
                 </div>
 
                 <div class="card-unit" data-author="Mahir">
-                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png', '03. SUGAR CANE FARM', 'Its_Mahir', '56 Mins', 'Self-Sufficient', 'An automated zero-loss piston harvesting array.', event)">
-                        <img src="https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png">
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png', '03. SUGAR CANE FARM', 'Its_Mahir', '56 Mins', 'Self-Sufficient', 'An automated zero-loss piston harvesting array.', event)"><img src="https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png"></div>
                     <div class="card-info"><h3>03. SUGAR CANE FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 56m</span></div></div>
                 </div>
 
@@ -286,28 +277,20 @@
                 </div>
 
                 <div class="card-unit" data-author="Rudronil">
-                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png', '05. BONE MEAL FARM', 'Its_Rudronil', '20 Mins', 'Its_Rudronil', 'A high-speed organic composting loop transforming excess flora into bone meal.', event)">
-                        <img src="https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png">
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png', '05. BONE MEAL FARM', 'Its_Rudronil', '20 Mins', 'Its_Rudronil', 'A high-speed organic composting loop transforming excess flora into bone meal.', event)"><img src="https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png"></div>
                     <div class="card-info"><h3>05. BONE MEAL FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 20m</span></div></div>
                 </div>
 
                 <div class="card-unit" data-author="Mahir">
                     <div class="dual-images">
-                        <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_1', '06. GOLD FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated gold generation facility.', event)">
-                            <img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image">
-                        </div>
-                        <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_2', '06. GOLD FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated gold extraction chamber.', event)">
-                            <img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image">
-                        </div>
+                        <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_1', '06. GOLD FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated gold generation facility.', event)"><img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image"></div>
+                        <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_2', '06. GOLD FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated gold extraction chamber.', event)"><img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image"></div>
                     </div>
                     <div class="card-info"><h3>06. GOLD FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
                 </div>
 
                 <div class="card-unit" data-author="Rudronil">
-                    <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_3', '07. STONE FARM', 'Its_Rudronil', 'Unknown', 'Its_Rudronil', 'High-speed automated stone generation matrix.', event)">
-                        <img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image">
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_3', '07. STONE FARM', 'Its_Rudronil', 'Unknown', 'Its_Rudronil', 'High-speed automated stone generation matrix.', event)"><img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image"></div>
                     <div class="card-info"><h3>07. STONE FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span></div></div>
                 </div>
 
@@ -453,13 +436,8 @@
                 </div>
 
                 <div class="card-unit" data-author="Rudronil">
-                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/mgqK0RVW/Screenshot-2026-08-08-012504.png', '14. MULTI PEARL STASIS CHAMBER', 'Its_Rudronil', '15 Mins', 'Its_Rudronil', 'Advanced teleportation nexus utilizing ender pearl stasis chambers.', event)">
-                        <img src="https://i.postimg.cc/mgqK0RVW/Screenshot-2026-08-08-012504.png" alt="Stasis Chamber">
-                    </div>
-                    <div class="card-info">
-                        <h3>14. MULTI PEARL STASIS CHAMBER</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 15m</span><span class="tag red-tag">📦 Res: Its_Rudronil</span></div>
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/mgqK0RVW/Screenshot-2026-08-08-012504.png', '14. MULTI PEARL STASIS CHAMBER', 'Its_Rudronil', '15 Mins', 'Its_Rudronil', 'Advanced teleportation nexus utilizing ender pearl stasis chambers.', event)"><img src="https://i.postimg.cc/mgqK0RVW/Screenshot-2026-08-08-012504.png" alt="Stasis Chamber"></div>
+                    <div class="card-info"><h3>14. MULTI PEARL STASIS CHAMBER</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 15m</span><span class="tag red-tag">📦 Res: Its_Rudronil</span></div></div>
                 </div>
 
                 <div class="card-unit" data-author="Mahir">
@@ -638,7 +616,7 @@
 
     </main>
 
-    <!-- JS ENGINE Link -->
-    <script src="index.js"></script>
+    <!-- 🌟 CACHE BUSTER FOR JS 🌟 -->
+    <script src="./index.js?v=7.0" defer></script>
 </body>
 </html>
