@@ -8,56 +8,78 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 🌟 SPLIT-SCREEN HOLOGRAPHIC DOSSIER MODAL 🌟 -->
+    <!-- 🌟 QUANTUM BOOT LOADER 🌟 -->
+    <div id="quantum-loader">
+        <div class="loader-ring-wrapper">
+            <div class="loader-ring"></div>
+            <div class="loader-core">SI</div>
+        </div>
+        <div class="loader-text" style="text-align: center; margin-top: 20px;">
+            AUTHENTICATING...<br><br>
+            <span style="font-size: 0.65rem; color: #777; line-height: 1.8;">
+                website made by - <span class="gold-txt">Its_Mahir</span><br>
+                domain by - <span class="cyan-txt">Its_Rudronil</span><br><br>
+                <span class="gold-txt" style="font-size: 0.75rem;">Have a nice day</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- 🌟 DYNAMIC HOLOGRAPHIC DOSSIER MODAL 🌟 -->
     <div id="dossier-overlay" class="dossier-overlay" onclick="closeDossier()">
-        <div class="dossier-box" onclick="event.stopPropagation()">
-            <button class="dossier-close" onclick="closeDossier()">✕ DISENGAGE DOSSIER</button>
+        <div class="dossier-box" id="main-dossier-box" onclick="event.stopPropagation()">
+            <button class="dossier-close" onclick="closeDossier()">✕ DISENGAGE</button>
             
-            <!-- Left Side: Image -->
-            <div class="dossier-left">
+            <div class="dossier-left build-image-side" id="dossier-left-panel">
                 <div class="dossier-img-frame">
                     <img id="dossier-img" src="" alt="Dossier Image">
                 </div>
             </div>
 
-            <!-- Right Side: Info Panel -->
-            <div class="dossier-right">
+            <div class="dossier-right" id="dossier-right-panel">
                 <div class="dossier-tag" id="dossier-tag-text">ARCHIVAL DOSSIER // HIGH CLEARANCE</div>
                 <h2 id="dossier-title" class="dossier-title">TITLE</h2>
                 
                 <div class="dossier-stats-grid">
-                    <div class="d-stat">
-                        <span>ARCHITECT / PLAYER</span>
-                        <strong id="dossier-builder" class="gold-txt">Its_Mahir</strong>
+                    <div class="d-stat" id="stat-row-1">
+                        <span id="lbl-1">ARCHITECT</span>
+                        <strong id="val-1" class="gold-txt">--</strong>
                     </div>
-                    <div class="d-stat">
-                        <span>TIME / PLAYTIME</span>
-                        <strong id="dossier-time" class="cyan-txt">--</strong>
+                    <div class="d-stat" id="stat-row-2">
+                        <span id="lbl-2">TIME TAKEN</span>
+                        <strong id="val-2" class="red-txt">--</strong>
                     </div>
-                    <div class="d-stat">
-                        <span>RESOURCES / K/D</span>
-                        <strong id="dossier-res">--</strong>
+                    <div class="d-stat" id="stat-row-3" style="display: none;">
+                        <span id="lbl-3">RESOURCES COLLECTOR</span>
+                        <strong id="val-3">--</strong>
+                    </div>
+                    <div class="d-stat" id="stat-row-4" style="display: none;">
+                        <span id="lbl-4">KILLS</span>
+                        <strong id="val-4" class="gold-txt">--</strong>
+                    </div>
+                    <div class="d-stat" id="stat-row-5" style="display: none;">
+                        <span id="lbl-5">DEATHS</span>
+                        <strong id="val-5" class="red-txt">--</strong>
                     </div>
                 </div>
 
                 <div class="dossier-desc-box">
-                    <span class="desc-label">SYSTEM DOSSIER & BIO:</span>
+                    <span class="desc-label">SYSTEM BIO:</span>
                     <p id="dossier-desc">Description loading...</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- HOLOGRAPHIC AMBIENCE & PARTICLES -->
+    <!-- HOLOGRAPHIC AMBIENCE -->
     <div class="cyber-void">
         <div class="grid-matrix"></div>
         <div class="ambient-core gold-core"></div>
-        <div class="ambient-core cyan-core"></div>
-        <div id="particle-canvas"></div>
+        <div class="ambient-core red-core"></div>
     </div>
 
     <!-- ================= TOP CYBER HUD ================= -->
@@ -69,17 +91,10 @@
 
         <div class="hud-center-stats">
             <div class="hud-stat-pill">
-                <span class="pulse-dot"></span>
-                <span>STATUS: <strong class="gold-txt">ONLINE</strong></span>
-            </div>
-            <div class="hud-stat-pill">
-                <span>PVP: <strong class="cyan-txt">NIGHT ONLY</strong></span>
-            </div>
-            <div class="hud-stat-pill">
-                <span>IP: <strong>skillissuesmp.qzz.io</strong></span>
+                <span>IP: <strong class="gold-txt">skillissuesmp.qzz.io</strong></span>
             </div>
             <div class="hud-stat-pill day-pill">
-                <span>SEASON 01 // <strong class="gold-txt">DAY <span id="smp-day-count">--</span></strong></span>
+                <span>SEASON 01 // <strong class="red-txt">DAY <span id="smp-day-count">--</span></strong></span>
             </div>
         </div>
 
@@ -112,113 +127,91 @@
         <section id="sec-home" class="view-panel active">
             <div class="hero-nexus">
                 <div class="hero-tag">TERMINAL AUTHENTICATED // HIGH-SECURITY CLEARANCE</div>
-                <h1 class="hero-mega">SKILL<br><span class="hollow-gold">ISSUE</span></h1>
+                <h1 class="hero-mega neon-flicker">SKILL<br><span class="hollow-gold">ISSUE</span></h1>
                 <p class="hero-desc">The undisputed pinnacle of Minecraft Survival Multiplayer. Built upon advanced redstone engineering, monolithic architecture, and supreme combat precision.</p>
                 <div class="hero-action-row">
                     <button class="action-btn primary" onclick="document.querySelectorAll('.q-btn')[4].click()">EXPLORE ARCHIVES</button>
                     <button class="action-btn secondary" onclick="document.querySelectorAll('.q-btn')[1].click()">COMBAT LEADERBOARD</button>
                 </div>
+                
+                <div style="margin-top: 40px;">
+                    <button id="yt-btn" class="action-btn" style="background: rgba(255,42,42,0.1); border: 1px solid #ff2a2a; color: #ff2a2a; box-shadow: 0 0 15px rgba(255,42,42,0.3); transition: all 0.3s ease;" onclick="showComingSoon()">
+                        ▶ OUR YOUTUBE CHANNELS
+                    </button>
+                </div>
             </div>
         </section>
 
-        <!-- 2. ELITE RANKINGS (HALL OF HONOR) -->
+        <!-- 2. ELITE RANKINGS (Updated to vertical list & Araf's reset) -->
         <section id="sec-rankings" class="view-panel">
             <div class="panel-heading">
-                <h2>HALL OF <span class="gold-txt">HONOR</span></h2>
-                <p>Click on any player card to view detailed combat dossier & bio.</p>
+                <h2>HALL OF <span class="red-txt">HONOR</span></h2>
             </div>
-
             <div class="ranking-hall">
                 
-                <!-- RANK 1: MASTER -->
-                <div class="honor-card champion-card" onclick="openPlayerDossier('https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png', 'Its_Mahir', 'MASTER', '244 Kills / 5 Deaths', '64h 12m', 'KDR: 48.80', 'The undisputed Master of Skill Issue SMP. Supreme builder, redstone engineer, and undefeated combat specialist dominating Season 01 with a massive 244 kills and near-perfect KDR.')">
+                <!-- RANK 1 -->
+                <div class="honor-card champion-card" onclick="openPlayerDossier('Its_Mahir', '1ST RANK / MASTER', '416', '6', '106h 07m', '69.33', 'The undisputed Sovereign of Skill Issue SMP. An apex predator in PvP with near-perfect lethality.')">
                     <div class="card-crown">👑</div>
                     <div class="rank-badge-top gold-bg-badge">#1 MASTER</div>
                     <div class="player-profile">
-                        <div class="avatar-ring gold-ring">
-                            <span class="p-rank-num">01</span>
-                        </div>
                         <div class="player-meta">
-                            <h3 class="p-title-name">Its_Mahir <span class="title-tag gold-tag">MASTER</span></h3>
-                            <div class="p-stats-bar">
-                                <div class="p-bar-fill gold-bar" style="width: 100%;"></div>
-                            </div>
+                            <h3 class="p-title-name">Its_Mahir <span class="title-tag gold-tag">1ST RANK</span></h3>
                         </div>
                     </div>
                     <div class="honor-stats-grid">
-                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val gold-txt">244</strong></div>
-                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">5</strong></div>
-                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">64h 12m</strong></div>
-                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val gold-txt">48.80</strong></div>
+                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val gold-txt">416</strong></div>
+                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">6</strong></div>
+                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">106h 07m</strong></div>
+                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val gold-txt">69.33</strong></div>
                     </div>
                 </div>
 
-                <!-- RANK 2: PRO -->
-                <div class="honor-card warlord-card" onclick="openPlayerDossier('https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png', 'Its_Sinzo9', 'PRO', '126 Kills / 82 Deaths', '54h 00m', 'KDR: 1.54', 'High-tier Pro combatant and essential resource collector. Key partner in server mega-projects including 4 Beacons, Iron Farm, and Enderman Farm.')">
+                <!-- RANK 2 -->
+                <div class="honor-card warlord-card" onclick="openPlayerDossier('Its_Sinzo9', '2ND RANK / PRO', '173', '115', '87h 44m', '1.50', 'High-tier Pro combatant and essential resource collector.')">
                     <div class="card-crown">⚡</div>
                     <div class="rank-badge-top silver-bg-badge">#2 PRO</div>
                     <div class="player-profile">
-                        <div class="avatar-ring silver-ring">
-                            <span class="p-rank-num">02</span>
-                        </div>
                         <div class="player-meta">
-                            <h3 class="p-title-name">Its_Sinzo9 <span class="title-tag silver-tag">PRO</span></h3>
-                            <div class="p-stats-bar">
-                                <div class="p-bar-fill silver-bar" style="width: 55%;"></div>
-                            </div>
+                            <h3 class="p-title-name">Its_Sinzo9 <span class="title-tag silver-tag">2ND RANK</span></h3>
                         </div>
                     </div>
                     <div class="honor-stats-grid">
-                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val">126</strong></div>
-                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">82</strong></div>
-                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">54h 00m</strong></div>
-                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val cyan-txt">1.54</strong></div>
+                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val">173</strong></div>
+                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">115</strong></div>
+                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">87h 44m</strong></div>
+                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val cyan-txt">1.50</strong></div>
                     </div>
                 </div>
 
-                <!-- RANK 3: AVERAGE -->
-                <div class="honor-card vanguard-card" onclick="openPlayerDossier('https://i.postimg.cc/W1xgKCXc/Screenshot-2026-08-06-005001.png', 'Its_Rudronil', 'AVERAGE', '41 Kills / 96 Deaths', '37h 06m', 'KDR: 0.43', 'Dedicated survival builder and farm creator. Engineered the Bone Meal farm and the massive 18-day estate, maintaining steady server contributions.')">
+                <!-- RANK 3 -->
+                <div class="honor-card vanguard-card" onclick="openPlayerDossier('Its_Rudronil', '3RD RANK / AVERAGE', '50', '156', '78h 36m', '0.32', 'Dedicated survival builder and agricultural engineer.')">
                     <div class="card-crown">🛡️</div>
                     <div class="rank-badge-top bronze-bg-badge">#3 AVERAGE</div>
                     <div class="player-profile">
-                        <div class="avatar-ring bronze-ring">
-                            <span class="p-rank-num">03</span>
-                        </div>
                         <div class="player-meta">
-                            <h3 class="p-title-name">Its_Rudronil <span class="title-tag bronze-tag">AVERAGE</span></h3>
-                            <div class="p-stats-bar">
-                                <div class="p-bar-fill bronze-bar" style="width: 25%;"></div>
-                            </div>
+                            <h3 class="p-title-name">Its_Rudronil <span class="title-tag bronze-tag">3RD RANK</span></h3>
                         </div>
                     </div>
                     <div class="honor-stats-grid">
-                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val">41</strong></div>
-                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">96</strong></div>
-                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">37h 06m</strong></div>
-                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val">0.43</strong></div>
+                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val">50</strong></div>
+                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">156</strong></div>
+                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">78h 36m</strong></div>
+                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val">0.32</strong></div>
                     </div>
                 </div>
 
-                <!-- RANK 4: NOOB -->
-                <div class="honor-card challenger-card" onclick="openPlayerDossier('https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png', 'Araf_XD', 'NOOB', '11 Kills / 285 Deaths', '19h 36m', 'KDR: 0.04', 'Fearless challenger who never steps back from a PvP battle regardless of death count. Builder of the famous 5-day estate and ultimate team player.')">
+                <!-- RANK 4 (ARAF - DATA RESET) -->
+                <div class="honor-card challenger-card" onclick="openPlayerDossier('Araf_XD', '4TH RANK / NOOB', 'RESET', 'RESET', 'RESET', '0.00', 'The ultimate grit challenger. Possesses an unbreakable spirit. *DATA HAS BEEN WIPED*')">
                     <div class="card-crown">🎯</div>
                     <div class="rank-badge-top standard-bg-badge">#4 NOOB</div>
                     <div class="player-profile">
-                        <div class="avatar-ring standard-ring">
-                            <span class="p-rank-num">04</span>
-                        </div>
                         <div class="player-meta">
-                            <h3 class="p-title-name">Araf_XD <span class="title-tag standard-tag">NOOB</span></h3>
-                            <div class="p-stats-bar">
-                                <div class="p-bar-fill standard-bar" style="width: 8%;"></div>
-                            </div>
+                            <h3 class="p-title-name">Araf_XD <span class="title-tag standard-tag">4TH RANK</span></h3>
                         </div>
                     </div>
-                    <div class="honor-stats-grid">
-                        <div class="h-stat"><span class="h-lbl">ELIMINATIONS</span><strong class="h-val">11</strong></div>
-                        <div class="h-stat"><span class="h-lbl">DEATHS</span><strong class="h-val">285</strong></div>
-                        <div class="h-stat"><span class="h-lbl">PLAYTIME</span><strong class="h-val">19h 36m</strong></div>
-                        <div class="h-stat"><span class="h-lbl">K/D RATIO</span><strong class="h-val">0.04</strong></div>
+                    <!-- Player Data Reset Notice -->
+                    <div style="width: 100%; border-top: 1px dashed rgba(255,42,42,0.4); margin-top: 25px; padding-top: 25px;">
+                        <strong class="red-txt neon-flicker" style="font-family: 'Orbitron'; font-size: 1.4rem; letter-spacing: 3px;">[ PLAYER DATA RESET ]</strong>
                     </div>
                 </div>
 
@@ -232,17 +225,17 @@
                 <p>Server connectivity and initialization parameters.</p>
             </div>
             <div class="core-grid">
-                <div class="core-box">
-                    <span class="c-lbl">CONNECTION HOST</span>
-                    <h3 class="gold-txt">skillissuesmp.qzz.io</h3>
+                <div class="core-box" style="padding: 30px; text-align: center;">
+                    <span class="c-lbl" style="color: var(--cyan); display: block; margin-bottom: 10px;">CONNECTION HOST</span>
+                    <h3 class="gold-txt" style="font-size: 1.5rem;">skillissuesmp.qzz.io</h3>
                 </div>
-                <div class="core-box">
-                    <span class="c-lbl">WORLD SEED GENERATOR</span>
-                    <h3>3273190341372830859</h3>
+                <div class="core-box" style="padding: 30px; text-align: center;">
+                    <span class="c-lbl" style="color: var(--cyan); display: block; margin-bottom: 10px;">WORLD SEED GENERATOR</span>
+                    <h3 style="font-size: 1.5rem;">3273190341372830859</h3>
                 </div>
-                <div class="core-box">
-                    <span class="c-lbl">SYSTEM INITIATION</span>
-                    <h3>19 JULY 2026</h3>
+                <div class="core-box" style="padding: 30px; text-align: center;">
+                    <span class="c-lbl" style="color: var(--cyan); display: block; margin-bottom: 10px;">SYSTEM INITIATION</span>
+                    <h3 style="font-size: 1.5rem;">19 JULY 2026</h3>
                 </div>
             </div>
         </section>
@@ -254,9 +247,8 @@
                 <p>Automated industrial resource generation. Click to open Dossier.</p>
             </div>
 
-            <!-- FILTER BAR -->
             <div class="filter-bar" id="farms-filter">
-                <button class="filter-btn active" onclick="filterGallery('farms-grid', 'all', this)">ALL FARMS (05)</button>
+                <button class="filter-btn active" onclick="filterGallery('farms-grid', 'all', this)">ALL FARMS (14)</button>
                 <button class="filter-btn" onclick="filterGallery('farms-grid', 'Mahir', this)">ITS_MAHIR</button>
                 <button class="filter-btn" onclick="filterGallery('farms-grid', 'Sinzo', this)">ITS_SINZO9 (RES)</button>
                 <button class="filter-btn" onclick="filterGallery('farms-grid', 'Rudronil', this)">ITS_RUDRONIL</button>
@@ -264,96 +256,108 @@
 
             <div class="serial-grid" id="farms-grid">
                 
-                <!-- Farm 1 -->
                 <div class="card-unit" data-author="Mahir Sinzo">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png', '01. IRON FARM', 'Its_Mahir', '1 Hour', 'Its_Sinzo9', 'An industrial-grade iron golem harvesting facility utilizing artificial village panic mechanics for maximum iron ingot yield.')">
-                        <img src="https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png" alt="Iron Farm">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png', '01. IRON FARM', 'Its_Mahir', '1 Hour', 'Its_Sinzo9', 'An industrial-grade iron golem harvesting facility utilizing artificial village panic mechanics.', event)">
+                        <img src="https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png">
                     </div>
-                    <div class="card-info">
-                        <h3>01. IRON FARM</h3>
-                        <div class="tags">
-                            <span class="tag gold-tag">🛠️ Its_Mahir</span>
-                            <span class="tag">⏱️ 1h</span>
-                            <span class="tag cyan-tag">📦 Res: Its_Sinzo9</span>
-                        </div>
-                    </div>
+                    <div class="card-info"><h3>01. IRON FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 1h</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
                 </div>
 
-                <!-- Farm 2 -->
                 <div class="card-unit" data-author="Mahir Sinzo">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png', '02. ENDERMAN FARM', 'Its_Mahir', '3 Hours', 'Its_Sinzo9', 'Constructed in the deep void of the End, providing instantaneous XP levels and ender pearls through high-efficiency fall damage traps.')">
-                        <img src="https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png" alt="Enderman Farm">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png', '02. ENDERMAN FARM', 'Its_Mahir', '3 Hours', 'Its_Sinzo9', 'Constructed in the deep void of the End, providing instantaneous XP levels and ender pearls.', event)">
+                        <img src="https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png">
                     </div>
-                    <div class="card-info">
-                        <h3>02. ENDERMAN FARM</h3>
-                        <div class="tags">
-                            <span class="tag gold-tag">🛠️ Its_Mahir</span>
-                            <span class="tag">⏱️ 3h</span>
-                            <span class="tag cyan-tag">📦 Res: Its_Sinzo9</span>
-                        </div>
-                    </div>
+                    <div class="card-info"><h3>02. ENDERMAN FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 3h</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
                 </div>
 
-                <!-- Farm 3 -->
                 <div class="card-unit" data-author="Mahir">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png', '03. SUGAR CANE FARM', 'Its_Mahir', '56 Mins', 'Self-Sufficient', 'An automated zero-loss piston harvesting array designed to continuously supply paper for books, fireworks, and villager trading.')">
-                        <img src="https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png" alt="Sugar Cane">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png', '03. SUGAR CANE FARM', 'Its_Mahir', '56 Mins', 'Self-Sufficient', 'An automated zero-loss piston harvesting array.', event)">
+                        <img src="https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png">
                     </div>
-                    <div class="card-info">
-                        <h3>03. SUGAR CANE FARM</h3>
-                        <div class="tags">
-                            <span class="tag gold-tag">🛠️ Its_Mahir</span>
-                            <span class="tag">⏱️ 56m</span>
-                        </div>
-                    </div>
+                    <div class="card-info"><h3>03. SUGAR CANE FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 56m</span></div></div>
                 </div>
 
-                <!-- Farm 4 -->
                 <div class="card-unit" data-author="Mahir Sinzo">
                     <div class="dual-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/VkfVvr85/Screenshot-2026-08-06-094402.png', '04. CREEPER & SPIDER FARM (CREEPER SECTION)', 'Its_Mahir', 'Continuous Cycle', 'Its_Sinzo9', 'A dual-chamber mob manipulation tower optimized for gunpowder extraction during high-intensity survival cycles. Resource collection assisted by Its_Sinzo9.')">
-                            <img src="https://i.postimg.cc/VkfVvr85/Screenshot-2026-08-06-094402.png" alt="Creeper">
-                        </div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/52skC44H/Screenshot-2026-08-06-094424.png', '04. CREEPER & SPIDER FARM (SPIDER SECTION)', 'Its_Mahir', 'Continuous Cycle', 'Its_Sinzo9', 'Dedicated string and spider-eye harvesting chamber integrated directly into the mob automation complex. Resource collection assisted by Its_Sinzo9.')">
-                            <img src="https://i.postimg.cc/52skC44H/Screenshot-2026-08-06-094424.png" alt="Spider">
-                        </div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/VkfVvr85/Screenshot-2026-08-06-094402.png', '04. CREEPER & SPIDER FARM', 'Its_Mahir', 'Continuous', 'Its_Sinzo9', 'A dual-chamber mob manipulation tower optimized for gunpowder extraction.', event)"><img src="https://i.postimg.cc/VkfVvr85/Screenshot-2026-08-06-094402.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/52skC44H/Screenshot-2026-08-06-094424.png', '04. CREEPER & SPIDER FARM', 'Its_Mahir', 'Continuous', 'Its_Sinzo9', 'Dedicated string and spider-eye harvesting chamber.', event)"><img src="https://i.postimg.cc/52skC44H/Screenshot-2026-08-06-094424.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>04. CREEPER & SPIDER FARM</h3>
-                        <div class="tags">
-                            <span class="tag gold-tag">🛠️ Its_Mahir</span>
-                            <span class="tag cyan-tag">📦 Res: Its_Sinzo9</span>
-                        </div>
-                    </div>
+                    <div class="card-info"><h3>04. CREEPER & SPIDER FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
                 </div>
 
-                <!-- Farm 5 -->
                 <div class="card-unit" data-author="Rudronil">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png', '05. BONE MEAL FARM', 'Its_Rudronil', '20 Mins', 'Its_Rudronil', 'A high-speed organic composting loop transforming excess flora into bone meal to accelerate server-wide agricultural growth.')">
-                        <img src="https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png" alt="Bone Meal">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png', '05. BONE MEAL FARM', 'Its_Rudronil', '20 Mins', 'Its_Rudronil', 'A high-speed organic composting loop transforming excess flora into bone meal.', event)">
+                        <img src="https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png">
                     </div>
-                    <div class="card-info">
-                        <h3>05. BONE MEAL FARM</h3>
-                        <div class="tags">
-                            <span class="tag gold-tag">🛠️ Its_Rudronil</span>
-                            <span class="tag">⏱️ 20m</span>
+                    <div class="card-info"><h3>05. BONE MEAL FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 20m</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="dual-images">
+                        <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_1', '06. GOLD FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated gold generation facility.', event)">
+                            <img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image">
+                        </div>
+                        <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_2', '06. GOLD FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated gold extraction chamber.', event)">
+                            <img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image">
                         </div>
                     </div>
+                    <div class="card-info"><h3>06. GOLD FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Rudronil">
+                    <div class="img-frame" onclick="openBuildDossier('REPLACE_WITH_IMAGE_LINK_3', '07. STONE FARM', 'Its_Rudronil', 'Unknown', 'Its_Rudronil', 'High-speed automated stone generation matrix.', event)">
+                        <img src="https://placehold.co/600x400/1a1a1a/00f3ff?text=NO+IMAGE" alt="No Image">
+                    </div>
+                    <div class="card-info"><h3>07. STONE FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/htp5VmXc/Screenshot-2026-09-02-132622.png', '08. COAL FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated coal resource generator.', event)"><img src="https://i.postimg.cc/htp5VmXc/Screenshot-2026-09-02-132622.png"></div>
+                    <div class="card-info"><h3>08. COAL FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Rudronil">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/sx7LW0h5/Screenshot-2026-09-02-132645.png', '09. TREE FARM', 'Its_Rudronil', 'Unknown', 'Its_Rudronil', 'Forestry automation system.', event)"><img src="https://i.postimg.cc/sx7LW0h5/Screenshot-2026-09-02-132645.png"></div>
+                    <div class="card-info"><h3>09. TREE FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/DzwRNg9n/Screenshot-2026-09-02-132633.png', '10. INF LAVA FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Dripstone and cauldron matrix for infinite lava.', event)"><img src="https://i.postimg.cc/DzwRNg9n/Screenshot-2026-09-02-132633.png"></div>
+                    <div class="card-info"><h3>10. INF LAVA FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/kMRP9TBC/Screenshot-2026-09-02-132210.png', '11. HONEY FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated apiary system.', event)"><img src="https://i.postimg.cc/kMRP9TBC/Screenshot-2026-09-02-132210.png"></div>
+                    <div class="card-info"><h3>11. HONEY FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/TPkv2SVC/Screenshot-2026-09-02-132227.png', '12. STRING FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Highly efficient string gathering system.', event)"><img src="https://i.postimg.cc/TPkv2SVC/Screenshot-2026-09-02-132227.png"></div>
+                    <div class="card-info"><h3>12. STRING FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/TYmxjtxY/Screenshot-2026-09-02-132248.png', '13. BAMBOO FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'High-speed bamboo growth mechanism.', event)"><img src="https://i.postimg.cc/TYmxjtxY/Screenshot-2026-09-02-132248.png"></div>
+                    <div class="card-info"><h3>13. BAMBOO FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Kj69v7pK/Screenshot-2026-09-02-132303.png', '14. CACTUS FARM', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Automated cactus breaking system.', event)"><img src="https://i.postimg.cc/Kj69v7pK/Screenshot-2026-09-02-132303.png"></div>
+                    <div class="card-info"><h3>14. CACTUS FARM</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
                 </div>
 
             </div>
         </section>
 
-        <!-- 5. ARCHIVES (ALL 13 BUILDS) -->
+        <!-- 5. ARCHIVES -->
         <section id="sec-archives" class="view-panel">
             <div class="panel-heading">
                 <h2>ARCHIVES</h2>
-                <p>Architectural monuments constructed within the SMP. Click to open Dossier.</p>
+                <p>Architectural monuments constructed within the SMP.</p>
             </div>
 
-            <!-- FILTER BAR -->
             <div class="filter-bar" id="archives-filter">
-                <button class="filter-btn active" onclick="filterGallery('archives-grid', 'all', this)">ALL BUILDS (13)</button>
+                <button class="filter-btn active" onclick="filterGallery('archives-grid', 'all', this)">ALL BUILDS (22)</button>
                 <button class="filter-btn" onclick="filterGallery('archives-grid', 'Mahir', this)">ITS_MAHIR</button>
                 <button class="filter-btn" onclick="filterGallery('archives-grid', 'Sinzo', this)">ITS_SINZO9</button>
                 <button class="filter-btn" onclick="filterGallery('archives-grid', 'Rudronil', this)">ITS_RUDRONIL</button>
@@ -362,156 +366,156 @@
 
             <div class="serial-grid" id="archives-grid">
                 
-                <!-- Build 1 -->
                 <div class="card-unit" data-author="Mahir">
                     <div class="quad-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1, serving as a tranquil social hub and architectural symbol for the SMP.')"><img src="https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1, serving as a tranquil social hub and architectural symbol for the SMP.')"><img src="https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1, serving as a tranquil social hub and architectural symbol for the SMP.')"><img src="https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1, serving as a tranquil social hub and architectural symbol for the SMP.')"><img src="https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1.', event)"><img src="https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1.', event)"><img src="https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1.', event)"><img src="https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png', '01. THE FOUNTAIN', 'Its_Mahir', '2 Hours', 'Its_Mahir', 'The central aquatic monument of Season 1.', event)"><img src="https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>01. THE FOUNTAIN</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 2h</span><span class="tag">📅 21 Jul</span></div>
-                    </div>
+                    <div class="card-info"><h3>01. THE FOUNTAIN</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 2h</span></div></div>
                 </div>
 
-                <!-- Build 2 -->
                 <div class="card-unit" data-author="Mahir">
                     <div class="dual-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png', '02. ITS_MAHIR\'S HOUSE', 'Its_Mahir', '4 Hours', 'Its_Mahir', 'A modern monolithic headquarters featuring panoramic glass facades, strategic defensive vantage points, and luxury interior design.')"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png', '02. ITS_MAHIR\'S HOUSE', 'Its_Mahir', '4 Hours', 'Its_Mahir', 'A modern monolithic headquarters featuring panoramic glass facades, strategic defensive vantage points, and luxury interior design.')"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png', '02. ITS_MAHIR\'S HOUSE', 'Its_Mahir', '4 Hours', 'Its_Mahir', 'A modern monolithic headquarters.', event)"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png', '02. ITS_MAHIR\'S HOUSE', 'Its_Mahir', '4 Hours', 'Its_Mahir', 'A modern monolithic headquarters.', event)"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>02. ITS_MAHIR'S HOUSE</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 4h</span><span class="tag">📅 21 Jul</span></div>
-                    </div>
+                    <div class="card-info"><h3>02. ITS_MAHIR'S HOUSE</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 4h</span></div></div>
                 </div>
 
-                <!-- Build 3 -->
                 <div class="card-unit" data-author="Mahir Sinzo">
                     <div class="triple-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png', '03. COMMUNITY HALL', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'The grand assembly chamber engineered for server-wide summits, treaty signings, and ceremonial gatherings.')"><img src="https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png', '03. COMMUNITY HALL', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'The grand assembly chamber engineered for server-wide summits, treaty signings, and ceremonial gatherings.')"><img src="https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png', '03. COMMUNITY HALL', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'The grand assembly chamber engineered for server-wide summits, treaty signings, and ceremonial gatherings.')"><img src="https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png', '03. COMMUNITY HALL', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'The grand assembly chamber.', event)"><img src="https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png', '03. COMMUNITY HALL', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'The grand assembly chamber.', event)"><img src="https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png', '03. COMMUNITY HALL', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'The grand assembly chamber.', event)"><img src="https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>03. COMMUNITY HALL</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 6h</span><span class="tag cyan-tag">📦 Res: Its_Sinzo9</span></div>
-                    </div>
+                    <div class="card-info"><h3>03. COMMUNITY HALL</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 6h</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
                 </div>
 
-                <!-- Build 4 -->
                 <div class="card-unit" data-author="Mahir Sinzo">
                     <div class="dual-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png', '04. ITS_SINZO9\'S BASE', 'Its_Mahir', '2 Hours', 'Its_Sinzo9', 'A fortified tactical outpost combining aesthetic elegance with high-tier survival utilities and secure vault storage.')"><img src="https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png', '04. ITS_SINZO9\'S BASE', 'Its_Mahir', '2 Hours', 'Its_Sinzo9', 'A fortified tactical outpost combining aesthetic elegance with high-tier survival utilities and secure vault storage.')"><img src="https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png', '04. ITS_SINZO9\'S BASE', 'Its_Mahir', '2 Hours', 'Its_Sinzo9', 'A fortified tactical outpost.', event)"><img src="https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png', '04. ITS_SINZO9\'S BASE', 'Its_Mahir', '2 Hours', 'Its_Sinzo9', 'A fortified tactical outpost.', event)"><img src="https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>04. ITS_SINZO9'S BASE</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 2h</span><span class="tag">📅 22 Jul</span></div>
-                    </div>
+                    <div class="card-info"><h3>04. ITS_SINZO9'S BASE</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 2h</span></div></div>
                 </div>
 
-                <!-- Build 5 -->
                 <div class="card-unit" data-author="Mahir">
                     <div class="dual-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png', '05. TRADING HALL', 'Its_Mahir', '3 Hours', 'Its_Mahir', 'A structured commercial complex housing cured villagers for optimized emerald economics and master-tier enchantments.')"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png', '05. TRADING HALL', 'Its_Mahir', '3 Hours', 'Its_Mahir', 'A structured commercial complex housing cured villagers for optimized emerald economics and master-tier enchantments.')"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png', '05. TRADING HALL', 'Its_Mahir', '3 Hours', 'Its_Mahir', 'A structured commercial complex.', event)"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png', '05. TRADING HALL', 'Its_Mahir', '3 Hours', 'Its_Mahir', 'A structured commercial complex.', event)"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>05. TRADING HALL</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 3h</span><span class="tag">📅 25 Jul</span></div>
-                    </div>
+                    <div class="card-info"><h3>05. TRADING HALL</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 3h</span></div></div>
                 </div>
 
-                <!-- Build 6 -->
                 <div class="card-unit" data-author="Mahir">
                     <div class="dual-images">
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png', '06. ENCHANTING AREA', 'Its_Mahir', '50 Mins', 'Its_Mahir', 'A mystical bookshelf sanctuary tuned to maximum enchantment levels, surrounded by atmospheric lighting.')"><img src="https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png"></div>
-                        <div class="img-frame" onclick="openDossier('https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png', '06. ENCHANTING AREA', 'Its_Mahir', '50 Mins', 'Its_Mahir', 'A mystical bookshelf sanctuary tuned to maximum enchantment levels, surrounded by atmospheric lighting.')"><img src="https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png', '06. ENCHANTING AREA', 'Its_Mahir', '50 Mins', 'Its_Mahir', 'A mystical bookshelf sanctuary.', event)"><img src="https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png', '06. ENCHANTING AREA', 'Its_Mahir', '50 Mins', 'Its_Mahir', 'A mystical bookshelf sanctuary.', event)"><img src="https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>06. ENCHANTING AREA</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 50m</span><span class="tag">📅 26 Jul</span></div>
-                    </div>
+                    <div class="card-info"><h3>06. ENCHANTING AREA</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 50m</span></div></div>
                 </div>
 
-                <!-- Build 7 -->
                 <div class="card-unit" data-author="Araf">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png', '07. ARAF_XD\'S HOUSE', 'Araf_XD', '5 Days', 'Araf_XD', 'An extensive 5-day architectural project showcasing intricate detailing, custom terraforming, and personalized living quarters.')">
-                        <img src="https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png">
-                    </div>
-                    <div class="card-info">
-                        <h3>07. ARAF_XD'S HOUSE</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Araf_XD</span><span class="tag">⏱️ 5 Days</span><span class="tag">📅 26 Jul</span></div>
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png', '07. ARAF_XD\'S HOUSE', 'Araf_XD', '5 Days', 'Araf_XD', 'An extensive 5-day architectural project.', event)"><img src="https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png"></div>
+                    <div class="card-info"><h3>07. ARAF_XD'S HOUSE</h3><div class="tags"><span class="tag gold-tag">🛠️ Araf_XD</span><span class="tag">⏱️ 5 Days</span></div></div>
                 </div>
 
-                <!-- Build 8 -->
                 <div class="card-unit" data-author="Mahir">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/Dw0PRqh4/Screenshot-2026-07-28-113911.png', '08. NETHER PORTAL', 'Its_Mahir', '35 Mins', 'Its_Mahir', 'A monumental dimensional gateway engineered to withstand Ghast bombardment while offering rapid transit across realms.')">
-                        <img src="https://i.postimg.cc/Dw0PRqh4/Screenshot-2026-07-28-113911.png">
-                    </div>
-                    <div class="card-info">
-                        <h3>08. NETHER PORTAL</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 35m</span></div>
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Dw0PRqh4/Screenshot-2026-07-28-113911.png', '08. NETHER PORTAL', 'Its_Mahir', '35 Mins', 'Its_Mahir', 'A monumental dimensional gateway.', event)"><img src="https://i.postimg.cc/Dw0PRqh4/Screenshot-2026-07-28-113911.png"></div>
+                    <div class="card-info"><h3>08. NETHER PORTAL</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 35m</span></div></div>
                 </div>
 
-                <!-- Build 9 -->
                 <div class="card-unit" data-author="Mahir">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/WzsM8ZST/Screenshot-2026-08-06-004902.png', '09. STORAGE AREA', 'Its_Mahir', '1h 24m', 'Its_Mahir', 'An industrial sorting and warehousing matrix designed for zero-clutter inventory management and instant resource retrieval.')">
-                        <img src="https://i.postimg.cc/WzsM8ZST/Screenshot-2026-08-06-004902.png">
-                    </div>
-                    <div class="card-info">
-                        <h3>09. STORAGE AREA</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 1h 24m</span></div>
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/WzsM8ZST/Screenshot-2026-08-06-004902.png', '09. STORAGE AREA', 'Its_Mahir', '1h 24m', 'Its_Mahir', 'An industrial sorting and warehousing matrix.', event)"><img src="https://i.postimg.cc/WzsM8ZST/Screenshot-2026-08-06-004902.png"></div>
+                    <div class="card-info"><h3>09. STORAGE AREA</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 1h 24m</span></div></div>
                 </div>
 
-                <!-- Build 10 -->
                 <div class="card-unit" data-author="Rudronil">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/W1xgKCXc/Screenshot-2026-08-06-005001.png', '10. ITS_RUDRONIL\'S HOUSE', 'Its_Rudronil', '18 Days', 'Its_Rudronil', 'An ambitious 18-day mega-residence featuring complex structural geometry and elite landscaping.')">
-                        <img src="https://i.postimg.cc/W1xgKCXc/Screenshot-2026-08-06-005001.png">
-                    </div>
-                    <div class="card-info">
-                        <h3>10. ITS_RUDRONIL'S HOUSE</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 18 Days</span></div>
-                    </div>
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/W1xgKCXc/Screenshot-2026-08-06-005001.png', '10. ITS_RUDRONIL\'S HOUSE', 'Its_Rudronil', '18 Days', 'Its_Rudronil', 'An ambitious 18-day mega-residence.', event)"><img src="https://i.postimg.cc/W1xgKCXc/Screenshot-2026-08-06-005001.png"></div>
+                    <div class="card-info"><h3>10. ITS_RUDRONIL'S HOUSE</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 18 Days</span><span class="tag red-tag">📦 Res: Its_Rudronil</span></div></div>
                 </div>
 
-                <!-- Build 11 -->
                 <div class="card-unit" data-author="Mahir Sinzo">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/B60DZFrT/Screenshot-2026-08-06-010244.png', '11. 4 BEACONS (DIA, GOLD, EMERALD, IRON)', 'Its_Sinzo9 & Its_Mahir', 'Multi-Day effort', 'Its_Sinzo9 & Its_Mahir', 'The supreme display of SMP wealth and dominance, projecting quadruple tier-4 status effects across the core zone.')">
-                        <img src="https://i.postimg.cc/B60DZFrT/Screenshot-2026-08-06-010244.png">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/B60DZFrT/Screenshot-2026-08-06-010244.png', '11. 4 BEACONS', 'Its_Sinzo9 & Its_Mahir', 'Multi-Day effort', 'Its_Sinzo9 & Its_Mahir', 'The supreme display of SMP wealth.', event)"><img src="https://i.postimg.cc/B60DZFrT/Screenshot-2026-08-06-010244.png"></div>
+                    <div class="card-info"><h3>11. 4 BEACONS</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Sinzo9 & Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/HsxMLdNs/Screenshot-2026-08-06-174805.png', '12. 3 SWORDS', 'Its_Mahir', '3 Hours', 'Its_Mahir', 'Colossal weapon monuments piercing the skyline.', event)"><img src="https://i.postimg.cc/HsxMLdNs/Screenshot-2026-08-06-174805.png"></div>
+                    <div class="card-info"><h3>12. 3 SWORDS</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/k5x6H42B/Screenshot-2026-08-06-182537.png', '13. CHERRY BLOSSOM TREE', 'Its_Mahir', '41 Mins', 'Its_Mahir', 'A handcrafted botanical masterpiece.', event)"><img src="https://i.postimg.cc/k5x6H42B/Screenshot-2026-08-06-182537.png"></div>
+                    <div class="card-info"><h3>13. CHERRY BLOSSOM TREE</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 41m</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Rudronil">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/mgqK0RVW/Screenshot-2026-08-08-012504.png', '14. MULTI PEARL STASIS CHAMBER', 'Its_Rudronil', '15 Mins', 'Its_Rudronil', 'Advanced teleportation nexus utilizing ender pearl stasis chambers.', event)">
+                        <img src="https://i.postimg.cc/mgqK0RVW/Screenshot-2026-08-08-012504.png" alt="Stasis Chamber">
                     </div>
                     <div class="card-info">
-                        <h3>11. 4 BEACONS (DIA, GOLD, EMERALD, IRON)</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Sinzo9 & Its_Mahir</span></div>
+                        <h3>14. MULTI PEARL STASIS CHAMBER</h3>
+                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span><span class="tag">⏱️ 15m</span><span class="tag red-tag">📦 Res: Its_Rudronil</span></div>
                     </div>
                 </div>
 
-                <!-- Build 12 -->
                 <div class="card-unit" data-author="Mahir">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/HsxMLdNs/Screenshot-2026-08-06-174805.png', '12. 3 SWORDS (DIAMOND, GOLD, IRON)', 'Its_Mahir', '3 Hours', 'Its_Mahir', 'Colossal weapon monuments piercing the skyline, representing the martial prowess and combat heritage of the server.')">
-                        <img src="https://i.postimg.cc/HsxMLdNs/Screenshot-2026-08-06-174805.png">
+                    <div class="penta-images">
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/MG69Tp5d/Screenshot-2026-08-09-235651.png', '15. MEGA AIRPORT', 'Its_Mahir', '2 Days 3 Hours', 'Its_Mahir', 'A massive modern aviation hub.', event)"><img src="https://i.postimg.cc/MG69Tp5d/Screenshot-2026-08-09-235651.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/8CpZ5z40/Screenshot-2026-08-09-235708.png', '15. MEGA AIRPORT', 'Its_Mahir', '2 Days 3 Hours', 'Its_Mahir', 'A massive modern aviation hub.', event)"><img src="https://i.postimg.cc/8CpZ5z40/Screenshot-2026-08-09-235708.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/q7J1RvwZ/Screenshot-2026-08-09-235756.png', '15. MEGA AIRPORT', 'Its_Mahir', '2 Days 3 Hours', 'Its_Mahir', 'A massive modern aviation hub.', event)"><img src="https://i.postimg.cc/q7J1RvwZ/Screenshot-2026-08-09-235756.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/7LHK6Z9R/Screenshot-2026-08-09-235905.png', '15. MEGA AIRPORT', 'Its_Mahir', '2 Days 3 Hours', 'Its_Mahir', 'A massive modern aviation hub.', event)"><img src="https://i.postimg.cc/7LHK6Z9R/Screenshot-2026-08-09-235905.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/J0VJsTm8/Screenshot-2026-08-09-235607.png', '15. MEGA AIRPORT', 'Its_Mahir', '2 Days 3 Hours', 'Its_Mahir', 'A massive modern aviation hub.', event)"><img src="https://i.postimg.cc/J0VJsTm8/Screenshot-2026-08-09-235607.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>12. 3 SWORDS</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div>
-                    </div>
+                    <div class="card-info"><h3>15. MEGA AIRPORT (JET/HELI)</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 2d 3h</span></div></div>
                 </div>
 
-                <!-- Build 13 -->
                 <div class="card-unit" data-author="Mahir">
-                    <div class="img-frame" onclick="openDossier('https://i.postimg.cc/k5x6H42B/Screenshot-2026-08-06-182537.png', '13. BIG CHERRY BLOSSOM TREE', 'Its_Mahir', '41 Mins', 'Its_Mahir', 'A handcrafted botanical masterpiece with glowing pink foliage, adding a serene organic contrast to the server\'s skyline.')">
-                        <img src="https://i.postimg.cc/k5x6H42B/Screenshot-2026-08-06-182537.png">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/7Y40DQKv/Screenshot-2026-08-10-003909.png', '16. SKILL-ISSUE SMP LOGO', 'Its_Mahir', '13 Mins', 'Its_Mahir', 'The iconic server insignia constructed with precision.', event)"><img src="https://i.postimg.cc/7Y40DQKv/Screenshot-2026-08-10-003909.png"></div>
+                    <div class="card-info"><h3>16. SKILL-ISSUE SMP LOGO</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 13m</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir Sinzo">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/g2Jw29RK/Screenshot-2026-08-13-112348.png', '17. DRAGON', 'Its_Mahir', '6 Hours', 'Its_Sinzo9', 'A classified monumental structure.', event)"><img src="https://i.postimg.cc/g2Jw29RK/Screenshot-2026-08-13-112348.png"></div>
+                    <div class="card-info"><h3>17. DRAGON</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 6h</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="triple-images">
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/15WtTWT5/Screenshot-2026-08-13-113013.png', '18. POTION AREA', 'Its_Mahir', '53 Mins', 'Its_Mahir', 'A high-speed architectural deployment.', event)"><img src="https://i.postimg.cc/15WtTWT5/Screenshot-2026-08-13-113013.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/3JLR6L6K/Screenshot-2026-08-13-112952.png', '18. POTION AREA', 'Its_Mahir', '53 Mins', 'Its_Mahir', 'A high-speed architectural deployment.', event)"><img src="https://i.postimg.cc/3JLR6L6K/Screenshot-2026-08-13-112952.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/qMmRYmYT/Screenshot-2026-08-13-112917.png', '18. POTION AREA', 'Its_Mahir', '53 Mins', 'Its_Mahir', 'A high-speed architectural deployment.', event)"><img src="https://i.postimg.cc/qMmRYmYT/Screenshot-2026-08-13-112917.png"></div>
                     </div>
-                    <div class="card-info">
-                        <h3>13. BIG CHERRY BLOSSOM TREE</h3>
-                        <div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 41m</span></div>
+                    <div class="card-info"><h3>18. POTION AREA</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag">⏱️ 53m</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Dw92kRP9/Screenshot-2026-09-02-132539.png', '19. HORSE AREA', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'Dedicated equestrian facility.', event)"><img src="https://i.postimg.cc/Dw92kRP9/Screenshot-2026-09-02-132539.png"></div>
+                    <div class="card-info"><h3>19. HORSE AREA</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir Sinzo">
+                    <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/Y2dMqvxf/Screenshot-2026-09-02-132555.png', '20. TOTEM STATUE', 'Its_Mahir', 'Unknown', 'Its_Sinzo9', 'A massive pixel art monument.', event)"><img src="https://i.postimg.cc/Y2dMqvxf/Screenshot-2026-09-02-132555.png"></div>
+                    <div class="card-info"><h3>20. TOTEM STATUE</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span><span class="tag red-tag">📦 Res: Its_Sinzo9</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Rudronil">
+                    <div class="dual-images">
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/nLftwBHx/Screenshot-2026-09-02-132344.png', '21. MEGA SMELTER AREA', 'Its_Rudronil', 'Unknown', 'Its_Rudronil', 'A massive industrial furnace array.', event)"><img src="https://i.postimg.cc/nLftwBHx/Screenshot-2026-09-02-132344.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/d0cKSrqv/Screenshot-2026-09-02-132359.png', '21. MEGA SMELTER AREA', 'Its_Rudronil', 'Unknown', 'Its_Rudronil', 'A massive industrial furnace array.', event)"><img src="https://i.postimg.cc/d0cKSrqv/Screenshot-2026-09-02-132359.png"></div>
                     </div>
+                    <div class="card-info"><h3>21. MEGA SMELTER AREA</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Rudronil</span></div></div>
+                </div>
+
+                <div class="card-unit" data-author="Mahir">
+                    <div class="dual-images">
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/7LkpN4Vb/Screenshot-2026-09-02-132455.png', '22. CAMEL AREA', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'A desert-themed enclosure.', event)"><img src="https://i.postimg.cc/7LkpN4Vb/Screenshot-2026-09-02-132455.png"></div>
+                        <div class="img-frame" onclick="openBuildDossier('https://i.postimg.cc/MGShYwDn/Screenshot-2026-09-02-132436.png', '22. CAMEL AREA', 'Its_Mahir', 'Unknown', 'Its_Mahir', 'A desert-themed enclosure.', event)"><img src="https://i.postimg.cc/MGShYwDn/Screenshot-2026-09-02-132436.png"></div>
+                    </div>
+                    <div class="card-info"><h3>22. CAMEL AREA</h3><div class="tags"><span class="tag gold-tag">🛠️ Its_Mahir</span></div></div>
                 </div>
 
             </div>
@@ -523,11 +527,13 @@
                 <h2>MEGA MISSIONS</h2>
                 <p>Strategic server roadmap & architectural phases.</p>
             </div>
-
-            <div class="mission-matrix">
-                <div class="m-phase-card">
-                    <div class="mp-header"><span>PHASE 01</span><span class="mp-date">10 - 30 AUG</span></div>
-                    <ul class="mp-list">
+            <div class="core-grid">
+                <div class="core-box" style="padding: 20px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 10px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px;">
+                        <span style="font-family: 'Orbitron'; color: var(--gold);">PHASE 01</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--cyan);">10 - 30 AUG</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 1.8;">
                         <li>Air port (Mini) <b>Its_Mahir</b></li>
                         <li>Plane x3, Jet x2/4, Helicopter x2 <b>Its_Mahir</b></li>
                         <li>Dragon (Black) <b>Its_Mahir</b></li>
@@ -536,10 +542,12 @@
                         <li>SKILL-ISSUE SMP (Logo) <b>Its_Mahir</b></li>
                     </ul>
                 </div>
-
-                <div class="m-phase-card">
-                    <div class="mp-header"><span>PHASE 02</span><span class="mp-date">1 - 10 SEP</span></div>
-                    <ul class="mp-list">
+                <div class="core-box" style="padding: 20px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 10px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px;">
+                        <span style="font-family: 'Orbitron'; color: var(--gold);">PHASE 02</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--cyan);">1 - 10 SEP</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 1.8;">
                         <li>Mosque <b>Its_Mahir</b></li>
                         <li>PvP area <b>Its_Mahir</b></li>
                         <li>End Portal (Desine/Remake) <b>Its_Mahir</b></li>
@@ -547,43 +555,44 @@
                         <li>Wind Rod farm <b>Its_Rudronil</b></li>
                     </ul>
                 </div>
-
-                <div class="m-phase-card">
-                    <div class="mp-header"><span>PHASE 03</span><span class="mp-date">11 - 15 SEP</span></div>
-                    <ul class="mp-list">
-                        <li>Nether Skeleton farm <b class="pink-badge">Its_Mahir</b></li>
-                        <li>Technoblade Statue ♥ <b class="pink-badge">Its_Mahir</b></li>
+                <div class="core-box" style="padding: 20px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 10px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px;">
+                        <span style="font-family: 'Orbitron'; color: var(--gold);">PHASE 03</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--cyan);">11 - 15 SEP</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 1.8;">
+                        <li>Nether Skeleton farm <b class="red-txt">Its_Mahir</b></li>
+                        <li>Technoblade Statue ♥ <b class="red-txt">Its_Mahir</b></li>
                     </ul>
                 </div>
-
-                <div class="m-phase-card">
-                    <div class="mp-header"><span>PHASE 04</span><span class="mp-date">17 - 25 SEP</span></div>
-                    <ul class="mp-list">
-                        <li>Iron farm x3 <b>Its_Rudronil / Its_Sinzo9</b></li>
-                        <li>Anime Girl statue (Builder unsure) <b>Its_Mahir</b></li>
+                <div class="core-box" style="padding: 20px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 10px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px;">
+                        <span style="font-family: 'Orbitron'; color: var(--gold);">PHASE 04</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--cyan);">17 - 25 SEP</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 1.8;">
+                        <li>Iron farm x3 <b>Its_Rudronil / Sinzo9</b></li>
+                        <li>Anime Girl statue <b>Its_Mahir</b></li>
                         <li>Sand/Gravel farm <b>Its_Mahir</b></li>
                         <li>MEGA SWORD <b>Its_Mahir</b></li>
                     </ul>
                 </div>
-
-                <div class="m-phase-card chill-phase">
-                    <div class="mp-header"><span>PHASE 05</span><span class="mp-date cyan-txt">25 - 30 SEP</span></div>
-                    <ul class="mp-list">
-                        <li>No work Only chill ☕ <b class="cyan-badge">Everyone</b></li>
+                <div class="core-box" style="padding: 20px; border-color: var(--red);">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 10px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px;">
+                        <span style="font-family: 'Orbitron'; color: var(--gold);">PHASE 05</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--red);">25 - 30 SEP</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 1.8;">
+                        <li>No work Only chill ☕ <b class="red-txt">Everyone</b></li>
                     </ul>
                 </div>
-
-                <div class="m-phase-card">
-                    <div class="mp-header"><span>PHASE 06</span><span class="mp-date">1 - 30 OCT</span></div>
-                    <ul class="mp-list">
+                <div class="core-box" style="padding: 20px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 10px; border-bottom: 1px solid var(--border-glass); padding-bottom: 10px;">
+                        <span style="font-family: 'Orbitron'; color: var(--gold);">PHASE 06</span>
+                        <span style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: var(--cyan);">1 - 30 OCT</span>
+                    </div>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 1.8;">
                         <li>Floating Island with every biom <b>Everyone</b></li>
-                    </ul>
-                </div>
-
-                <div class="m-phase-card">
-                    <div class="mp-header"><span>PHASE 07</span><span class="mp-date">1 - 10 NOV</span></div>
-                    <ul class="mp-list">
-                        <li>End (Remake/Desine) <b>Its_Mahir + Everyone</b></li>
                     </ul>
                 </div>
             </div>
@@ -593,28 +602,35 @@
         <section id="sec-rules" class="view-panel">
             <div class="panel-heading">
                 <h2>DIRECTIVES</h2>
-                <p>Immutable combat and property laws.</p>
+                <p>Immutable server laws and operational protocols.</p>
             </div>
-            <div class="rules-grid">
-                <div class="rule-unit">
-                    <div class="ru-num">01</div>
-                    <div class="ru-body">
-                        <h3>ARCHITECTURE PROTECTION</h3>
-                        <p>No builds can be blown up or griefed. Respect the creations of others.</p>
+            <div class="rules-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="core-box" style="padding: 20px; display: flex; gap: 15px;">
+                    <div style="font-family: 'Orbitron'; font-size: 2.5rem; color: rgba(255,255,255,0.1);">01</div>
+                    <div>
+                        <h3 style="color: var(--gold); margin-bottom: 10px;">AFK PROTOCOL</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.9rem;">If you need to be away from the keyboard, you MUST type <b>/sit</b> in the chat to sit down. This preserves server resources.</p>
                     </div>
                 </div>
-                <div class="rule-unit">
-                    <div class="ru-num">02</div>
-                    <div class="ru-body">
-                        <h3>COMBAT PROTOCOL</h3>
-                        <p>PvP engagement is strictly restricted to nighttime hours only.</p>
+                <div class="core-box" style="padding: 20px; display: flex; gap: 15px;">
+                    <div style="font-family: 'Orbitron'; font-size: 2.5rem; color: rgba(255,255,255,0.1);">02</div>
+                    <div>
+                        <h3 style="color: var(--gold); margin-bottom: 10px;">ANTI-GRIEFING ACT</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.9rem;">No player is allowed to break, damage, or steal items from another player's house or personal property under any circumstances.</p>
                     </div>
                 </div>
-                <div class="rule-unit">
-                    <div class="ru-num">03</div>
-                    <div class="ru-body">
-                        <h3>PROPERTY RIGHTS</h3>
-                        <p>Looting or stealing goods from anyone's chest is strictly prohibited.</p>
+                <div class="core-box" style="padding: 20px; display: flex; gap: 15px;">
+                    <div style="font-family: 'Orbitron'; font-size: 2.5rem; color: rgba(255,255,255,0.1);">03</div>
+                    <div>
+                        <h3 style="color: var(--gold); margin-bottom: 10px;">ENVIRONMENTAL RESPONSIBILITY</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.9rem;">If you damage any part of the Skill Issue SMP common area, you must repair it. Failure to do so will result in the complete destruction of your own house.</p>
+                    </div>
+                </div>
+                <div class="core-box" style="padding: 20px; display: flex; gap: 15px;">
+                    <div style="font-family: 'Orbitron'; font-size: 2.5rem; color: rgba(255,255,255,0.1);">04</div>
+                    <div>
+                        <h3 style="color: var(--gold); margin-bottom: 10px;">POST-MORTEM LOOTING POLICY</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.9rem;">Items on a deceased player's body are free game for looting or destruction by any other player. Fight at your own risk.</p>
                     </div>
                 </div>
             </div>
@@ -622,204 +638,7 @@
 
     </main>
 
-    <!-- JS ENGINE -->
-    <script>
-        // ================================================================
-        // 1. SCI-FI WEB AUDIO SOUND FX ENGINE (MINECRAFT MACE SMASH HIT)
-        // ================================================================
-        let sfxEnabled = true;
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        let audioCtx = null;
-
-        function playSciFiSound(type) {
-            if(!sfxEnabled) return;
-            if(!audioCtx) audioCtx = new AudioCtx();
-
-            const now = audioCtx.currentTime;
-
-            if(type === 'click') {
-                // --- MINECRAFT MACE HEAVY HIT / SMASH SOUND ---
-                const osc = audioCtx.createOscillator();
-                const oscGain = audioCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(140, now);
-                osc.frequency.exponentialRampToValueAtTime(30, now + 0.15);
-                
-                oscGain.gain.setValueAtTime(0.5, now);
-                oscGain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
-                
-                osc.connect(oscGain);
-                oscGain.connect(audioCtx.destination);
-                osc.start(now);
-                osc.stop(now + 0.18);
-
-                const bufferSize = audioCtx.sampleRate * 0.1;
-                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = buffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
-
-                const noise = audioCtx.createBufferSource();
-                noise.buffer = buffer;
-
-                const filter = audioCtx.createBiquadFilter();
-                filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(800, now);
-                filter.frequency.linearRampToValueAtTime(100, now + 0.1);
-
-                const noiseGain = audioCtx.createGain();
-                noiseGain.gain.setValueAtTime(0.3, now);
-                noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.12);
-
-                noise.connect(filter);
-                filter.connect(noiseGain);
-                noiseGain.connect(audioCtx.destination);
-                noise.start(now);
-                noise.stop(now + 0.12);
-
-            } else if(type === 'switch') {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(180, now);
-                osc.frequency.exponentialRampToValueAtTime(60, now + 0.08);
-                gain.gain.setValueAtTime(0.15, now);
-                gain.gain.linearRampToValueAtTime(0.01, now + 0.08);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start(now);
-                osc.stop(now + 0.08);
-            }
-        }
-
-        function toggleSFX() {
-            sfxEnabled = !sfxEnabled;
-            const btn = document.getElementById('sfx-toggle');
-            btn.classList.toggle('active', sfxEnabled);
-            btn.innerHTML = sfxEnabled ? '🔊 SFX' : '🔇 MUTE';
-            playSciFiSound('click');
-        }
-
-        // ================================================================
-        // 2. ARCHITECT FILTER SYSTEM
-        // ================================================================
-        function filterGallery(gridId, author, btnElement) {
-            playSciFiSound('click');
-            const grid = document.getElementById(gridId);
-            const units = grid.querySelectorAll('.card-unit');
-
-            btnElement.parentNode.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btnElement.classList.add('active');
-
-            units.forEach(unit => {
-                const dataAuthor = unit.getAttribute('data-author') || '';
-                if(author === 'all' || dataAuthor.includes(author)) {
-                    unit.style.display = '';
-                    setTimeout(() => unit.style.opacity = '1', 10);
-                } else {
-                    unit.style.opacity = '0';
-                    setTimeout(() => unit.style.display = 'none', 300);
-                }
-            });
-        }
-
-        // ================================================================
-        // 3. LIVE DAY & COUNTDOWN TIMER ENGINE
-        // ================================================================
-        function updateTimeEngine() {
-            const startDate = new Date('2026-07-19T00:00:00+06:00');
-            const now = new Date();
-            
-            const diffDays = Math.floor((now - startDate) / (1000 * 60 * 60 * 24)) + 1;
-            document.getElementById('smp-day-count').innerText = diffDays > 0 ? diffDays : 0;
-
-            const tomorrow = new Date(now);
-            tomorrow.setHours(24, 0, 0, 0);
-            const timeDiff = tomorrow - now;
-
-            const h = Math.floor((timeDiff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-            const m = Math.floor((timeDiff / 1000 / 60) % 60).toString().padStart(2, '0');
-            const s = Math.floor((timeDiff / 1000) % 60).toString().padStart(2, '0');
-
-            document.getElementById('countdown-timer').innerText = `${h}:${m}:${s}`;
-        }
-        updateTimeEngine();
-        setInterval(updateTimeEngine, 1000);
-
-        // ================================================================
-        // 4. VIEW NAVIGATION ENGINE
-        // ================================================================
-        function switchView(viewId, btnElement) {
-            playSciFiSound('switch');
-            
-            if(btnElement) {
-                document.querySelectorAll('.q-btn').forEach(b => b.classList.remove('active'));
-                btnElement.classList.add('active');
-            }
-
-            document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById(viewId);
-            if(target) {
-                target.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        // ================================================================
-        // 5. DOSSIER MODAL ENGINE (BUILDS, FARMS & PLAYER PROFILE)
-        // ================================================================
-        function openDossier(imgSrc, title, builder, time, res, desc) {
-            playSciFiSound('click');
-            
-            document.getElementById('dossier-img').src = imgSrc;
-            document.getElementById('dossier-title').innerText = title;
-            document.getElementById('dossier-builder').innerText = builder;
-            document.getElementById('dossier-time').innerText = time;
-            document.getElementById('dossier-res').innerText = res;
-            document.getElementById('dossier-desc').innerText = desc;
-            document.getElementById('dossier-tag-text').innerText = "ARCHIVAL DOSSIER // HIGH CLEARANCE";
-
-            const overlay = document.getElementById('dossier-overlay');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function openPlayerDossier(imgSrc, name, title, killsDeaths, playtime, kdr, bio) {
-            playSciFiSound('click');
-            
-            document.getElementById('dossier-img').src = imgSrc;
-            document.getElementById('dossier-title').innerText = name + " [" + title + "]";
-            document.getElementById('dossier-builder').innerText = name;
-            document.getElementById('dossier-time').innerText = playtime;
-            document.getElementById('dossier-res').innerText = kdr;
-            document.getElementById('dossier-desc').innerText = bio + "\n\nCombat Record: " + killsDeaths;
-            document.getElementById('dossier-tag-text').innerText = "PLAYER PROFILE // " + title + " CLEARANCE";
-
-            const overlay = document.getElementById('dossier-overlay');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeDossier() {
-            playSciFiSound('click');
-            const overlay = document.getElementById('dossier-overlay');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // ================================================================
-        // 6. DIGITAL PARTICLES
-        // ================================================================
-        const canvas = document.getElementById('particle-canvas');
-        for(let i=0; i<35; i++) {
-            let p = document.createElement('div');
-            p.className = 'matrix-particle';
-            p.style.left = Math.random() * 100 + '%';
-            p.style.animationDuration = (Math.random() * 4 + 3) + 's';
-            p.style.animationDelay = Math.random() * 3 + 's';
-            canvas.appendChild(p);
-        }
-    </script>
+    <!-- JS ENGINE Link -->
+    <script src="index.js"></script>
 </body>
 </html>
