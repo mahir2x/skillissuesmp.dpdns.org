@@ -54,7 +54,17 @@ h1, h2, h3, .q-btn, .tag, .hud-brand { font-family: 'Orbitron', sans-serif; lett
 .red-core { width: 35vw; height: 35vw; background: var(--cyan); bottom: -10%; right: -5%; animation-delay: -5s; }
 @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, 50px) scale(1.1); } }
 
-/* HUD UPDATE: IP and Day side-by-side */
+/* LOADER - WITH AUTOHIDE FALLBACK */
+#quantum-loader {
+    position: fixed; inset: 0; background: var(--bg-base); z-index: 9999;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.8s;
+    animation: autoHideLoader 0s ease-in 4s forwards; /* Failsafe */
+}
+@keyframes autoHideLoader { to { opacity: 0; visibility: hidden; z-index: -10; } }
+
+.loader-core { font-family: 'Orbitron'; font-size: 3rem; font-weight: 900; color: #fff; text-shadow: 0 0 20px var(--cyan); animation: pulse 1s infinite alternate; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.1); opacity: 1; } }
+
 .quantum-hud {
     display: flex; justify-content: space-between; align-items: center; padding: 15px 40px;
     background: rgba(7, 9, 19, 0.7); backdrop-filter: blur(16px);
@@ -62,10 +72,7 @@ h1, h2, h3, .q-btn, .tag, .hud-brand { font-family: 'Orbitron', sans-serif; lett
 }
 .hud-brand { font-size: 1.5rem; font-weight: 900; display: flex; align-items: center; gap: 12px; cursor: pointer;}
 .brand-box { background: linear-gradient(45deg, var(--gold), #ffaa00); color: #000; padding: 4px 10px; border-radius: 6px; box-shadow: 0 0 15px var(--gold-glow); }
-
-.hud-center-stats { 
-    display: flex; flex-direction: row; gap: 15px; align-items: center; justify-content: center; flex-wrap: wrap; 
-}
+.hud-center-stats { display: flex; flex-direction: row; gap: 15px; align-items: center; justify-content: center; flex-wrap: wrap; }
 .hud-stat-pill { background: rgba(255,255,255,0.03); padding: 8px 20px; border-radius: 30px; border: 1px solid var(--border-glass); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
 .hud-right-controls { display: flex; gap: 20px; align-items: center; }
 .timer-box { text-align: right; display: flex; flex-direction: column; }
@@ -103,7 +110,6 @@ h1, h2, h3, .q-btn, .tag, .hud-brand { font-family: 'Orbitron', sans-serif; lett
 .panel-heading h2 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
 .panel-heading p { color: var(--text-muted); }
 
-/* GRID UPDATE: Ranking Hall is now a vertical list */
 .serial-grid, .rules-grid, .core-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .ranking-hall { display: flex; flex-direction: column; gap: 25px; max-width: 750px; margin: 0 auto; }
 
@@ -162,10 +168,6 @@ h1, h2, h3, .q-btn, .tag, .hud-brand { font-family: 'Orbitron', sans-serif; lett
     .hero-mega { font-size: 3.5rem; }
     .quantum-hud { flex-direction: column; gap: 15px; text-align: center; }
 }
-
-#quantum-loader { position: fixed; inset: 0; background: var(--bg-base); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.8s; }
-.loader-core { font-family: 'Orbitron'; font-size: 3rem; font-weight: 900; color: #fff; text-shadow: 0 0 20px var(--cyan); animation: pulse 1s infinite alternate; }
-@keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.1); opacity: 1; } }
 
 .dual-images, .triple-images, .quad-images, .penta-images { display: grid; gap: 2px; width: 100%; height: 220px; }
 .dual-images { grid-template-columns: 1fr 1fr; }
