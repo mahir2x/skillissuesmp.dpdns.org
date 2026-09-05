@@ -1,4 +1,4 @@
-// 1. Quantum Loader
+// 1. Quantum Loader (with auto-clear)
 window.addEventListener('load', () => {
     setTimeout(() => {
         const loader = document.getElementById('quantum-loader');
